@@ -12,6 +12,7 @@ if (theme) document.documentElement.classList.add("theme-" + theme);
 export function App() {
 	let [renderCount, setRenderCount] = useState(1);
 	useEffect(() => {
+		Notification.requestPermission();
 		const listener = () => setRenderCount(c => c + 1);
 		chatService.addListener(listener);
 		return () => chatService.removeListener(listener);
